@@ -28,11 +28,11 @@ var keys = document.querySelector("#keys"), canshow = true;
 if(localStorage.getItem("canshow") == "false"){
      keys.classList.add("canshow")
      keys.innerHTML = "hide keys";
-     canshow = true;
+     canshow = false;
 } else if(localStorage.getItem("canshow") == "true") {
      keys.classList.remove("canshow")
      keys.innerHTML = "show keys";
-     canshow = false
+     canshow = true;
 }
 
 function buttons(removex, removey){
@@ -121,7 +121,7 @@ function drumitems(removex, removey){
      right.style.left = ((img_drum.clientWidth) * 0.46) + removex + "px";
 }
 drumitems(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
-if(canshow){
+if(!canshow){
      button.forEach(e=>{
           e.classList.toggle("hide")
           e.style.width = (img_drum.clientWidth * 0.03) + "px";
@@ -130,6 +130,9 @@ if(canshow){
      buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
 }
 keys.addEventListener("click", ()=>{
+     canshow = !canshow;
+     localStorage.setItem("canshow", canshow)
+     console.log(canshow)
      keys.classList.toggle("canshow");
      if(keys.innerHTML == "show keys"){
           keys.innerHTML = "hide keys";
@@ -143,12 +146,11 @@ keys.addEventListener("click", ()=>{
                e.style.height = (img_drum.clientWidth * 0.03) + "px";
           })
           buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
-     localStorage.setItem("canshow", canshow)
-
 })
 
 window.addEventListener("resize", ()=>{
      drumitems(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
      if(canshow){
           button.forEach(e=>{
                e.classList.toggle("hide")

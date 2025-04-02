@@ -183,3 +183,10 @@
 .hide {
      display: none!important;
 }
+
+.holderdiv__ {
+     background-color: green;
+     z-index: 1000;
+     position: absolute;
+     inset: 0;
+}
