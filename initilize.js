@@ -34,9 +34,10 @@ if(localStorage.getItem("canshow") == "false"){
      keys.innerHTML = "show keys";
      canshow = true;
 } else {
-     keys.classList.remove("canshow")
-     keys.innerHTML = "show keys";
+     keys.classList.remove("canshow");
+     keys.innerHTML = "hide keys";
      canshow = true;
+     localStorage.setItem("canshow", canshow)
 }
 
 function buttons(removex, removey){
