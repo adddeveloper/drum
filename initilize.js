@@ -156,7 +156,7 @@ keys.addEventListener("click", ()=>{
 window.addEventListener("resize", ()=>{
      drumitems(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
      buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
-     if(canshow){
+     if(!canshow){
           button.forEach(e=>{
                e.classList.toggle("hide")
                e.style.width = (img_drum.clientWidth * 0.03) + "px";
@@ -169,7 +169,7 @@ window.addEventListener("resize", ()=>{
 window.addEventListener("load", ()=>{
      drumitems(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
      buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
-     if(canshow){
+     if(!canshow){
           button.forEach(e=>{
                e.classList.toggle("hide")
                e.style.width = (img_drum.clientWidth * 0.03) + "px";
