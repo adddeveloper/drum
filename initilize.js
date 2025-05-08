@@ -24,7 +24,7 @@ var button_s = document.querySelector(".button_s");
 var button_d = document.querySelector(".button_d");
 var button_x = document.querySelector(".button_x");
 var button = document.querySelectorAll(".button");
-var keys = document.querySelector("#keys"), canshow = true;
+var keys = document.querySelector("#keys"), canshow = false;
 if(localStorage.getItem("canshow") == "false"){
      keys.classList.add("canshow")
      keys.innerHTML = "hide keys";
@@ -34,9 +34,9 @@ if(localStorage.getItem("canshow") == "false"){
      keys.innerHTML = "show keys";
      canshow = true;
 } else {
-     keys.classList.remove("canshow");
+     keys.classList.add("canshow");
      keys.innerHTML = "hide keys";
-     canshow = true;
+     canshow = false;
      localStorage.setItem("canshow", canshow)
 }
 
