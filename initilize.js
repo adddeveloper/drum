@@ -158,11 +158,17 @@ window.addEventListener("resize", ()=>{
      buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
      if(!canshow){
           button.forEach(e=>{
-               e.classList.toggle("hide")
+               e.classList.remove("hide")
                e.style.width = (img_drum.clientWidth * 0.03) + "px";
                e.style.height = (img_drum.clientWidth * 0.03) + "px";
           })
           buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     } else {
+          button.forEach(e=>{
+               e.classList.add("hide")
+               e.style.width = (img_drum.clientWidth * 0.03) + "px";
+               e.style.height = (img_drum.clientWidth * 0.03) + "px";
+          })
      }
 })
 
@@ -171,10 +177,16 @@ window.addEventListener("load", ()=>{
      buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
      if(!canshow){
           button.forEach(e=>{
-               e.classList.toggle("hide")
+               e.classList.remove("hide")
                e.style.width = (img_drum.clientWidth * 0.03) + "px";
                e.style.height = (img_drum.clientWidth * 0.03) + "px";
           })
           buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     } else {
+          button.forEach(e=>{
+               e.classList.add("hide")
+               e.style.width = (img_drum.clientWidth * 0.03) + "px";
+               e.style.height = (img_drum.clientWidth * 0.03) + "px";
+          })
      }
 })
