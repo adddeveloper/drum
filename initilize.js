@@ -33,6 +33,10 @@ if(localStorage.getItem("canshow") == "false"){
      keys.classList.remove("canshow")
      keys.innerHTML = "show keys";
      canshow = true;
+} else {
+     keys.classList.remove("canshow")
+     keys.innerHTML = "show keys";
+     canshow = true;
 }
 
 function buttons(removex, removey){
@@ -149,6 +153,19 @@ keys.addEventListener("click", ()=>{
 })
 
 window.addEventListener("resize", ()=>{
+     drumitems(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     if(canshow){
+          button.forEach(e=>{
+               e.classList.toggle("hide")
+               e.style.width = (img_drum.clientWidth * 0.03) + "px";
+               e.style.height = (img_drum.clientWidth * 0.03) + "px";
+          })
+          buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     }
+})
+
+window.addEventListener("load", ()=>{
      drumitems(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
      buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
      if(canshow){
