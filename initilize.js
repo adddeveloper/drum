@@ -24,7 +24,7 @@ var button_s = document.querySelector(".button_s");
 var button_d = document.querySelector(".button_d");
 var button_x = document.querySelector(".button_x");
 var button = document.querySelectorAll(".button");
-var keys = document.querySelector("#keys"), canshow = true;
+var keys = document.querySelector("#keys"), canshow = false;
 if(localStorage.getItem("canshow") == "false"){
      keys.classList.add("canshow")
      keys.innerHTML = "hide keys";
@@ -33,6 +33,11 @@ if(localStorage.getItem("canshow") == "false"){
      keys.classList.remove("canshow")
      keys.innerHTML = "show keys";
      canshow = true;
+} else {
+     keys.classList.add("canshow");
+     keys.innerHTML = "hide keys";
+     canshow = false;
+     localStorage.setItem("canshow", canshow)
 }
 
 function buttons(removex, removey){
@@ -151,12 +156,37 @@ keys.addEventListener("click", ()=>{
 window.addEventListener("resize", ()=>{
      drumitems(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
      buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
-     if(canshow){
+     if(!canshow){
           button.forEach(e=>{
-               e.classList.toggle("hide")
+               e.classList.remove("hide")
                e.style.width = (img_drum.clientWidth * 0.03) + "px";
                e.style.height = (img_drum.clientWidth * 0.03) + "px";
           })
           buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     } else {
+          button.forEach(e=>{
+               e.classList.add("hide")
+               e.style.width = (img_drum.clientWidth * 0.03) + "px";
+               e.style.height = (img_drum.clientWidth * 0.03) + "px";
+          })
+     }
+})
+
+window.addEventListener("load", ()=>{
+     drumitems(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     if(!canshow){
+          button.forEach(e=>{
+               e.classList.remove("hide")
+               e.style.width = (img_drum.clientWidth * 0.03) + "px";
+               e.style.height = (img_drum.clientWidth * 0.03) + "px";
+          })
+          buttons(img_drum.getBoundingClientRect().left, img_drum.getBoundingClientRect().top)
+     } else {
+          button.forEach(e=>{
+               e.classList.add("hide")
+               e.style.width = (img_drum.clientWidth * 0.03) + "px";
+               e.style.height = (img_drum.clientWidth * 0.03) + "px";
+          })
      }
 })
